@@ -7,7 +7,7 @@ public record struct Day03
 
     public static async Task<IEnumerable<string>> ProcessInput()
     {
-        string input = await File.ReadAllTextAsync("./day03/input.txt");
+        string input = await File.ReadAllTextAsync("../../../day03/input.txt");
 
         return input.Trim().Split("\r\n");
     }
@@ -21,4 +21,14 @@ public record struct Day03
         .Chunk(3)
         .Select(subChunk => subChunk[0].Intersect(subChunk[1]).Intersect(subChunk[2]).SingleOrDefault())
         .Sum(ObtainValueFromAsciiSource);
+}
+
+public record class Day03Tests
+{
+    [Fact]
+    public static async Task Tests()
+    {
+        Assert.Equal(8515, await Day03.Part1());
+        Assert.Equal(2434, await Day03.Part2());
+    }
 }
