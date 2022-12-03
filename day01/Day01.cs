@@ -6,7 +6,7 @@ public record struct Day01
     {
         string input = await File.ReadAllTextAsync("../../../day01/input.txt");
 
-        return input.Trim().Split("\r\n\r\n").Select(chunk => chunk.Split("\r\n").Sum(int.Parse));
+        return input.Trim().Split("\n\n").Select(chunk => chunk.Split("\n").Sum(int.Parse));
     }
 
     public static async Task<int> Part1() => (await ProcessInput()).Max();

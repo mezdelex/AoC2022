@@ -45,7 +45,7 @@ public record struct Day02
     {
         string input = await File.ReadAllTextAsync("../../../day02/input.txt");
 
-        return input.Trim().Split("\r\n");
+        return input.Trim().Split("\n");
     }
 
     public static async Task<int> Part1() => (await ProcessInput()).Select(chunk => Part1Conversion[chunk] + ChoiceValue[chunk.Substring(2)]).Sum();

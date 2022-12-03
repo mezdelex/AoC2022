@@ -9,7 +9,7 @@ public record struct Day03
     {
         string input = await File.ReadAllTextAsync("../../../day03/input.txt");
 
-        return input.Trim().Split("\r\n");
+        return input.Trim().Split("\n");
     }
 
     public static async Task<int> Part1() => (await ProcessInput())
