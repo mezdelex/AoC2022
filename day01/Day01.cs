@@ -1,10 +1,10 @@
-namespace AoC2022.day1;
+namespace AoC2022.day01;
 
 public record struct Day01
 {
     public static async Task<IEnumerable<int>> ProcessInput()
     {
-        string input = await File.ReadAllTextAsync("./day1/input.txt");
+        string input = await File.ReadAllTextAsync("./day01/input.txt");
 
         return input.Trim().Split("\r\n\r\n").Select(chunk => chunk.Split("\r\n").Sum(int.Parse));
     }
