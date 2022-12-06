@@ -1,7 +1,5 @@
-using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using AoC2022.shared;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.InProcDataCollector;
 
 namespace AoC2022.day05;
 
