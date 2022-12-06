@@ -9,7 +9,7 @@ public record struct Day06
         string input = await ProcessInput();
         int index;
 
-        for (index = secuence; index < input.Length; ++index)
+        for (index = secuence; index + secuence < input.Length; ++index)
             if (input[index..(index + secuence)].Distinct().Count() == secuence)
                 break;
 
