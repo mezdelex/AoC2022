@@ -7,13 +7,8 @@ public record struct Day06
     public static async Task<int> GetMarker(int secuence)
     {
         string input = await ProcessInput();
-        int index;
 
-        for (index = secuence; index + secuence < input.Length; ++index)
-            if (input[index..(index + secuence)].Distinct().Count() == secuence)
-                break;
-
-        return index + secuence;
+        return Enumerable.Range(secuence, input.Length).Where(i => input[(i - secuence)..i].Distinct().Count() == secuence).FirstOrDefault();
     }
 
     public static async Task<int> Part1() => await GetMarker(4);
