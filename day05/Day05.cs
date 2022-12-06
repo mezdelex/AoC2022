@@ -1,5 +1,7 @@
+using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using AoC2022.shared;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.InProcDataCollector;
 
 namespace AoC2022.day05;
 
@@ -47,7 +49,8 @@ public record struct Day05
         }
 
         string result = string.Empty;
-        pInput.Item1.ToList().ForEach(stack => result += stack.Peek());
+        foreach (Stack<char> stack in pInput.Item1)
+            result += stack.Peek();
 
         return result;
     }
