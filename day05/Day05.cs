@@ -62,7 +62,7 @@ public record class Day05Tests
     [Fact]
     public static async Task Tests()
     {
-        Assert.Equal(await Day05.Part1(), "FWSHSPJWM");
-        Assert.Equal(await Day05.Part2(), "PWPWHGFZS");
+        Assert.Equal("FWSHSPJWM", await Day05.Part1());
+        Assert.Equal("PWPWHGFZS", await Day05.Part2());
     }
 }

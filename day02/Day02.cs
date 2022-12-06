@@ -50,9 +50,9 @@ public record struct Day02
         return input.Trim().Split(Utils.NEW_LINE);
     }
 
-    public static async Task<int> Part1() => (await ProcessInput()).Select(chunk => Part1Conversion[chunk] + ChoiceValue[chunk.Substring(2)]).Sum();
+    public static async Task<int> Part1() => (await ProcessInput()).Select(chunk => Part1Conversion[chunk] + ChoiceValue[chunk[2..]]).Sum();
 
-    public static async Task<int> Part2() => (await ProcessInput()).Select(chunk => MatchValue[chunk.Substring(2)] + ChoiceValue[MustUse[chunk]]).Sum();
+    public static async Task<int> Part2() => (await ProcessInput()).Select(chunk => MatchValue[chunk[2..]] + ChoiceValue[MustUse[chunk]]).Sum();
 }
 
 public record class Day02Tests

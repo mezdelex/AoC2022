@@ -29,7 +29,7 @@ public record class Day04Tests
     [Fact]
     public static async Task Tests()
     {
-        Assert.Equal(await Day04.Part1(), 500);
-        Assert.Equal(await Day04.Part2(), 815);
+        Assert.Equal(500, await Day04.Part1());
+        Assert.Equal(815, await Day04.Part2());
     }
 }

@@ -15,7 +15,7 @@ public record struct Day03
     }
 
     public static async Task<int> Part1() => (await ProcessInput())
-        .Select(chunk => new string[2] { chunk.Substring(0, chunk.Length / 2), chunk.Substring(chunk.Length / 2) })
+        .Select(chunk => new string[2] { chunk[0..(chunk.Length / 2)], chunk[(chunk.Length / 2)..] })
         .Select(subChunk => subChunk[0].Intersect(subChunk[1]).SingleOrDefault())
         .Sum(ObtainValueFromAsciiSource);
 
