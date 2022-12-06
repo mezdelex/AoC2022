@@ -25,32 +25,22 @@ public record struct Day05
     {
         (Stack<char>[], string[]) pInput = await ProcessInput();
 
-        for (int i = 9; i < pInput.Item2.Length; ++i)
+        Enumerable.Range(9, pInput.Item2.Length - 9).ToList().ForEach(i =>
         {
             MatchCollection instructions = Regex.Matches(pInput.Item2[i], $"\\d+", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase);
 
             if (isPart1)
-            {
-                for (int j = 0; j < int.Parse(instructions[0].Value); ++j)
-                    pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop());
-            }
+                Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop()));
             else
             {
                 Stack<char> temp = new();
 
-                for (int j = 0; j < int.Parse(instructions[0].Value); ++j)
-                    temp.Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop());
-
-                for (int j = 0; j < int.Parse(instructions[0].Value); ++j)
-                    pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(temp.Pop());
+                Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => temp.Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop()));
+                Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(temp.Pop()));
             }
-        }
+        });
 
-        string result = string.Empty;
-        foreach (Stack<char> stack in pInput.Item1)
-            result += stack.Peek();
-
-        return result;
+        return pInput.Item1.Select(stack => stack.Pop()).Aggregate("", (acc, character) => acc += character).ToString();
     }
 
     public static async Task<string> Part1() => await GetCrates(true);
