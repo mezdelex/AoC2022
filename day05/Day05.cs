@@ -27,7 +27,7 @@ public record struct Day05
 
         Enumerable.Range(9, pInput.Item2.Length - 9).ToList().ForEach(i =>
         {
-            MatchCollection instructions = Regex.Matches(pInput.Item2[i], $"\\d+", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase);
+            MatchCollection instructions = Regex.Matches(pInput.Item2[i], @"\d+", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase);
 
             if (isPart1)
                 Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop()));
