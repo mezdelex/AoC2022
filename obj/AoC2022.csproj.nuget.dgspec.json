@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mezdelex\\Workspace\\AoC2022\\AoC2022.csproj": {}
+    "C:\\Users\\alexc\\Workspace\\Advent of Code\\2022\\AoC2022.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mezdelex\\Workspace\\AoC2022\\AoC2022.csproj": {
+    "C:\\Users\\alexc\\Workspace\\Advent of Code\\2022\\AoC2022.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mezdelex\\Workspace\\AoC2022\\AoC2022.csproj",
+        "projectUniqueName": "C:\\Users\\alexc\\Workspace\\Advent of Code\\2022\\AoC2022.csproj",
         "projectName": "AoC2022",
-        "projectPath": "C:\\Users\\Mezdelex\\Workspace\\AoC2022\\AoC2022.csproj",
-        "packagesPath": "C:\\Users\\Mezdelex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mezdelex\\Workspace\\AoC2022\\obj\\",
+        "projectPath": "C:\\Users\\alexc\\Workspace\\Advent of Code\\2022\\AoC2022.csproj",
+        "packagesPath": "C:\\Users\\alexc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexc\\Workspace\\Advent of Code\\2022\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mezdelex\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\alexc\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Mezdelex\\scoop\\apps\\dotnet-sdk\\current\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\alexc\\scoop\\apps\\dotnet-sdk\\current\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

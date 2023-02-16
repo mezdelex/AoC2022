@@ -1,6 +1,3 @@
-using System.Text.RegularExpressions;
-using AoC2022.shared;
-
 namespace AoC2022.day04;
 
 public record struct Day04
@@ -9,7 +6,13 @@ public record struct Day04
     {
         string input = await File.ReadAllTextAsync("../../../day04/input.txt");
 
-        return input.Trim().Split(Utils.NEW_LINE).Select(chunk => new Regex("[,-]", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase).Split(chunk));
+        return input
+            .Trim()
+            .Split(Utils.NEW_LINE)
+            .Select(chunk => new Regex("[,-]", RegexOptions.Compiled
+                        | RegexOptions.NonBacktracking
+                        | RegexOptions.IgnoreCase)
+                    .Split(chunk));
     }
 
     public static async Task<int> Part1() => (await ProcessInput())

@@ -8,7 +8,12 @@ public record struct Day06
     {
         string input = await ProcessInput();
 
-        return Enumerable.Range(secuence, input.Length).Where(i => input[(i - secuence)..i].Distinct().Count() == secuence).FirstOrDefault();
+        return Enumerable
+            .Range(secuence, input.Length)
+            .Where(i => input[(i - secuence)..i]
+                    .Distinct()
+                    .Count() == secuence)
+            .FirstOrDefault();
     }
 
     public static async Task<int> Part1() => await GetMarker(4);

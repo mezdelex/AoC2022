@@ -1,6 +1,3 @@
-using System.Text.RegularExpressions;
-using AoC2022.shared;
-
 namespace AoC2022.day05;
 
 public record struct Day05
@@ -9,7 +6,10 @@ public record struct Day05
     {
         string input = await File.ReadAllTextAsync("../../../day05/input.txt");
 
-        string[] chunks = new Regex($"{Utils.NEW_LINE}+{Utils.NEW_LINE}|{Utils.NEW_LINE}", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase).Split(input);
+        string[] chunks = new Regex($"{Utils.NEW_LINE}+{Utils.NEW_LINE}|{Utils.NEW_LINE}", RegexOptions.Compiled
+                | RegexOptions.NonBacktracking
+                | RegexOptions.IgnoreCase)
+            .Split(input);
 
         Stack<char>[] stacks = { new(), new(), new(), new(), new(), new(), new(), new(), new() };
 
@@ -23,17 +23,19 @@ public record struct Day05
 
     public static async Task<string> GetCrates(bool isPart1)
     {
-        (Stack<char>[], string[]) pInput = await ProcessInput();
+        var pInput = await ProcessInput();
 
         Enumerable.Range(9, pInput.Item2.Length - 9).ToList().ForEach(i =>
         {
-            MatchCollection instructions = Regex.Matches(pInput.Item2[i], @"\d+", RegexOptions.Compiled | RegexOptions.NonBacktracking | RegexOptions.IgnoreCase);
+            MatchCollection instructions = Regex.Matches(pInput.Item2[i], @"\d+", RegexOptions.Compiled
+                    | RegexOptions.NonBacktracking
+                    | RegexOptions.IgnoreCase);
 
             if (isPart1)
                 Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop()));
             else
             {
-                Stack<char> temp = new();
+                var temp = new Stack<char>();
 
                 Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => temp.Push(pInput.Item1[int.Parse(instructions[1].Value) - 1].Pop()));
                 Enumerable.Range(0, int.Parse(instructions[0].Value)).ToList().ForEach(i => pInput.Item1[int.Parse(instructions[2].Value) - 1].Push(temp.Pop()));

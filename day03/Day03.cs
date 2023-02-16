@@ -1,5 +1,3 @@
-using AoC2022.shared;
-
 namespace AoC2022.day03;
 
 public record struct Day03
@@ -16,7 +14,9 @@ public record struct Day03
 
     public static async Task<int> Part1() => (await ProcessInput())
         .Select(chunk => new string[2] { chunk[0..(chunk.Length / 2)], chunk[(chunk.Length / 2)..] })
-        .Select(subChunk => subChunk[0].Intersect(subChunk[1]).SingleOrDefault())
+        .Select(subChunk => subChunk[0]
+                .Intersect(subChunk[1])
+                .SingleOrDefault())
         .Sum(ObtainValueFromAsciiSource);
 
     public static async Task<int> Part2() => (await ProcessInput())

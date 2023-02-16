@@ -1,5 +1,3 @@
-using AoC2022.shared;
-
 namespace AoC2022.day07;
 
 public record struct Day07
@@ -55,21 +53,21 @@ public record struct Day07
                 }
             }).Where(item => item != null).ToList();
 
-        items.Where(item => item.isFolder)
+        items.Where(item => item!.isFolder)
                 .ToList()
-                .ForEach(item => item.Size = items.Where(_item => _item.Path.Contains(item.Path) && !_item.isFolder).Sum(item => item.Size));
+                .ForEach(item => item!.Size = items.Where(_item => _item!.Path!.Contains(item.Path!) && !_item.isFolder).Sum(item => item!.Size));
 
         return items;
     }
 
-    public static async Task<int> Part1() => (await ProcessInput()).Where(item => item.Size < 100000 && item.isFolder).Sum(item => item.Size);
+    public static async Task<int> Part1() => (await ProcessInput()).Where(item => item!.Size < 100000 && item.isFolder).Sum(item => item!.Size);
 
     public static async Task<int> Part2()
     {
         IEnumerable<Item?> items = (await ProcessInput());
         int? size = items.SingleOrDefault(item => item?.ItemName == "/" && item.isFolder)?.Size;
 
-        return items.Where(item => item.isFolder && item.Size > 30000000 - (70000000 - size)).Min(item => item.Size);
+        return items.Where(item => item!.isFolder && item.Size > 30000000 - (70000000 - size)).Min(item => item!.Size);
     }
 }
 
